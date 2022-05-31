@@ -1,0 +1,55 @@
+
+public class DefaultMethodTest {
+
+	public static void main(String[] args) {
+		Child5 c = new Child5();
+		c.method1();
+		c.method2();
+		MyInterface.staticMethod();
+		MyInterface2.staticMethod();
+
+	}
+
+}
+
+class Child5 extends Parent5 implements MyInterface, MyInterface2 {
+//	오버라이딩
+	public void method1() {
+		System.out.println("method1() in Child");
+	}
+}
+
+class Parent5 {
+	public void method2() {
+		System.out.println("method2() in Parent");
+	}
+}
+
+interface MyInterface {
+//	디폴트 메서드
+	default void method1() {
+		System.out.println("method1() in MyInterface");
+	}
+	
+//	디폴트 메서드
+	default void method2() {
+		System.out.println("method2() in MyInterface");
+	}
+	
+//	static 메서드
+	static void staticMethod() {
+		System.out.println("staticMethod() in MyInterface");
+	}
+}
+
+interface MyInterface2 {
+//	디폴트 메서드
+	default void method1() {
+		System.out.println("method1() in MyInterface2");
+	}
+	
+//	static 메서드
+	static void staticMethod() {
+		System.out.println("staticMethod() in MyInterface2");
+	}
+}
